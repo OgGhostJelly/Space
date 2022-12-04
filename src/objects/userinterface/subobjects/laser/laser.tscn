@@ -36,3 +36,7 @@ metadata/_edit_vertical_guides_ = [-134.0]
 points = PackedVector2Array(0, 0, 0, 0)
 width_curve = SubResource("Curve_j6wtw")
 default_color = Color(1, 0, 0, 1)
+
+[node name="DamageTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true

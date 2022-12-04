@@ -7,6 +7,7 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_h2g8q"]
 
 [node name="Earth" type="Area3D"]
+monitoring = false
 monitorable = false
 script = ExtResource("1_blaoj")
 
