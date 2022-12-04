@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://crijtt02t2qh3"]
+
+[ext_resource type="Script" path="res://src/classes/world/world.gd" id="1_mvr8b"]
+[ext_resource type="PackedScene" uid="uid://c5igof51bc8r6" path="res://src/classes/planet/subclasses/Earth/earth.tscn" id="2_mwtqs"]
+[ext_resource type="PackedScene" uid="uid://bj5vc1t5uav4t" path="res://src/classes/player/player.tscn" id="3_5d5t7"]
+
+[node name="Game" type="Node3D"]
+script = ExtResource("1_mvr8b")
+
+[node name="Earth" parent="." instance=ExtResource("2_mwtqs")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Earth"]
+transform = Transform3D(1, 0, 0, 0, 0.999711, 0.0240484, 0, -0.0240484, 0.999711, 0, 0, 0)
+
+[node name="Player" parent="." instance=ExtResource("3_5d5t7")]
