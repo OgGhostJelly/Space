@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5igof51bc8r6"]
-
-[ext_resource type="Script" path="res://src/classes/planet/subclasses/Earth/earth.gd" id="1_pjl38"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_4foyh"]
-
-[node name="Earth" type="MeshInstance3D"]
-mesh = SubResource("SphereMesh_4foyh")
-script = ExtResource("1_pjl38")

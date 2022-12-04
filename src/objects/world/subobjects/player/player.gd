@@ -3,7 +3,7 @@ class_name Player
 
 
 @export var radius: float = 2.6
-@export var speed: float = 1.0
+@export var speed: float = 0.5
 @export var y_pos: float = 2.0
 
 

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxrhil7wjg54l"]
+
+[ext_resource type="Script" path="res://src/objects/world/subobjects/planet/planet.gd" id="1_blaoj"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_4foyh"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_h2g8q"]
+
+[node name="Earth" type="Area3D"]
+monitorable = false
+script = ExtResource("1_blaoj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_4foyh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_h2g8q")

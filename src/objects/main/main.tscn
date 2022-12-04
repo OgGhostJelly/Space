@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5vmhw2sdsq4u"]
+
+[ext_resource type="PackedScene" path="res://src/objects/world/world.tscn" id="1_d0mvu"]
+[ext_resource type="PackedScene" uid="uid://chmfgvcp7mbmo" path="res://src/objects/userinterface/userinterface.tscn" id="2_ljx1d"]
+
+[node name="Main" type="Node"]
+
+[node name="World" parent="." instance=ExtResource("1_d0mvu")]
+
+[node name="UserInterface" parent="." instance=ExtResource("2_ljx1d")]
+grow_horizontal = 2
+grow_vertical = 2

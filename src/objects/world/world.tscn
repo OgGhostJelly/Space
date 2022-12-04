@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://src/objects/world/subobjects/planet/subclasses/Earth/earth.tscn" id="2_mwtqs"]
+[ext_resource type="PackedScene" path="res://src/objects/world/subobjects/player/player.tscn" id="3_5d5t7"]
+
+[node name="World" type="Node3D"]
+
+[node name="Earth" parent="." instance=ExtResource("2_mwtqs")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Earth"]
+transform = Transform3D(1, 0, 0, 0, 0.999711, 0.0240484, 0, -0.0240484, 0.999711, 0, 0, 0)
+
+[node name="Player" parent="." instance=ExtResource("3_5d5t7")]

@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://db7eckdym3omp"]
+
+[ext_resource type="Script" path="res://src/objects/userinterface/subobjects/laser/laser.gd" id="1_ert12"]
+
+[sub_resource type="Gradient" id="Gradient_jcmpt"]
+offsets = PackedFloat32Array(0.00436681, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Curve" id="Curve_j6wtw"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.2), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Laser" type="CPUParticles2D"]
+lifetime = 0.1
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+angular_velocity_min = 100.0
+angular_velocity_max = 100.0
+linear_accel_min = 10.0
+linear_accel_max = 10.0
+radial_accel_min = 100.0
+radial_accel_max = 100.0
+tangential_accel_min = 100.0
+tangential_accel_max = 100.0
+scale_amount_min = 5.0
+scale_amount_max = 5.0
+color = Color(1, 0, 0, 1)
+color_ramp = SubResource("Gradient_jcmpt")
+script = ExtResource("1_ert12")
+metadata/_edit_vertical_guides_ = [-134.0]
+
+[node name="LaserLine2D" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 0, 0)
+width_curve = SubResource("Curve_j6wtw")
+default_color = Color(1, 0, 0, 1)
