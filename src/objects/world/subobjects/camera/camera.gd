@@ -2,9 +2,9 @@ extends Node3D
 class_name Player
 
 
-@export var terminal_velocity: float = 5.0
+@export var terminal_velocity: float = 0.5
 @export var acceleration: float = 0.25
-@export var friction: float = 0.5
+@export var friction: float = 0.25
 @export var radius: float = 2.6
 @export var y_pos: float = 2.0
 
@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 		velocity = move_toward(velocity, terminal_velocity * input_vector, acceleration * delta)
 	else:
 		velocity = move_toward(velocity, 0, friction * delta)
-	
+	print(velocity)
 	# move to the correct position around the center
 	var angle: float = atan2(position.z,position.x)
 	position.x = cos(angle + (velocity)) * radius

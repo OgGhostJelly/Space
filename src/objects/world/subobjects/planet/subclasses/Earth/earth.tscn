@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cxrhil7wjg54l"]
+[gd_scene load_steps=11 format=3 uid="uid://cxrhil7wjg54l"]
 
 [ext_resource type="Script" path="res://src/objects/world/subobjects/planet/planet.gd" id="1_blaoj"]
 
@@ -12,13 +12,6 @@ metallic = 0.82
 metallic_specular = 1.0
 roughness = 0.0
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_lskux"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_27x36"]
-albedo_color = Color(1, 0, 0, 1)
-metallic = 1.0
-roughness = 0.59
-
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_dgkkx"]
 radius = 0.1245
 height = 1.0
@@ -28,7 +21,21 @@ albedo_color = Color(0.498039, 0.498039, 0.498039, 1)
 metallic = 1.0
 roughness = 0.7
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_h2g8q"]
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_lskux"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_27x36"]
+diffuse_mode = 3
+albedo_color = Color(1, 0, 0, 1)
+metallic = 1.0
+roughness = 0.59
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_mv6vq"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_whmf0"]
+radius = 0.124
+height = 1.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xi4rk"]
 
 [node name="Earth" type="Area3D"]
 monitoring = false
@@ -40,17 +47,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.334908, 0.0965317)
 mesh = SubResource("SphereMesh_4foyh")
 surface_material_override/0 = SubResource("StandardMaterial3D_oudc4")
 
-[node name="BodyMesh" type="MeshInstance3D" parent="."]
-mesh = SubResource("CapsuleMesh_lskux")
-surface_material_override/0 = SubResource("StandardMaterial3D_27x36")
-
 [node name="BackpackMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.506906)
 mesh = SubResource("CapsuleMesh_dgkkx")
 surface_material_override/0 = SubResource("StandardMaterial3D_mtc0e")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("SphereShape3D_h2g8q")
+[node name="BodyMesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_lskux")
+surface_material_override/0 = SubResource("StandardMaterial3D_27x36")
+
+[node name="VisorCollision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.334908, 0.0965317)
+shape = SubResource("SphereShape3D_mv6vq")
+
+[node name="BackpackCollision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.506906)
+shape = SubResource("CapsuleShape3D_whmf0")
+
+[node name="BodyMesh2" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_xi4rk")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.26074, 0.965409, 0, -0.965409, -0.26074, 0, 0, 0)
