@@ -1,13 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://csuycsrbartef"]
+[gd_scene load_steps=6 format=3 uid="uid://csuycsrbartef"]
 
 [ext_resource type="PackedScene" uid="uid://cxrhil7wjg54l" path="res://src/objects/world/subobjects/planet/subclasses/Earth/earth.tscn" id="2_mwtqs"]
 [ext_resource type="PackedScene" uid="uid://b65aka7kbd2dt" path="res://src/objects/world/subobjects/camera/camera.tscn" id="3_5d5t7"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0rks1"]
+
+[sub_resource type="Sky" id="Sky_cau0k"]
+sky_material = SubResource("ProceduralSkyMaterial_0rks1")
+
+[sub_resource type="Environment" id="Environment_jr3ff"]
+sky = SubResource("Sky_cau0k")
+sky_rotation = Vector3(-0.329867, 0, 0)
+ambient_light_source = 3
+ambient_light_color = Color(0.996078, 0.996078, 0.996078, 1)
+reflected_light_source = 2
 
 [node name="World" type="Node3D"]
 
 [node name="Earth" parent="." instance=ExtResource("2_mwtqs")]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Earth"]
-transform = Transform3D(1, 0, 0, 0, 0.999711, 0.0240484, 0, -0.0240484, 0.999711, 0, 0, 0)
-
 [node name="Player" parent="." instance=ExtResource("3_5d5t7")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_jr3ff")

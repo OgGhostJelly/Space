@@ -1,10 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5vmhw2sdsq4u"]
+[gd_scene load_steps=4 format=3 uid="uid://c5vmhw2sdsq4u"]
 
 [ext_resource type="PackedScene" uid="uid://csuycsrbartef" path="res://src/objects/world/world.tscn" id="1_d0mvu"]
 [ext_resource type="PackedScene" uid="uid://chmfgvcp7mbmo" path="res://src/objects/userinterface/userinterface.tscn" id="2_ljx1d"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_if4t0"]
 
 [node name="Main" type="Node"]
 
 [node name="World" parent="." instance=ExtResource("1_d0mvu")]
 
 [node name="UserInterface" parent="." instance=ExtResource("2_ljx1d")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.20874)
+mesh = SubResource("BoxMesh_if4t0")
