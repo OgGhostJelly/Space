@@ -4,17 +4,16 @@ extends CPUParticles2D
 @export var laser_sensitivity: float = 0.25
 @onready var laser_line: Line2D = $LaserLine2D
 @onready var damage_timer: Timer = $DamageTimer
-var previous_global_mouse_position: Vector2
 
 
-func _process(delta: float) -> void:
-	var global_mouse_position: Vector2 = get_global_mouse_position()
+func _process(_delta: float) -> void:
 	# destroy asroids
-	if not Input.is_action_pressed("fire") or not PlanetData.mouse_touching_planet:
+	if not LaserData.target:
 		emitting = false
 		laser_line.visible = false
-		previous_global_mouse_position = global_mouse_position
 		return
+	
+	var global_mouse_position: Vector2 = get_global_mouse_position()
 	
 	global_position = global_mouse_position
 	
@@ -23,8 +22,3 @@ func _process(delta: float) -> void:
 	
 	emitting = true
 	laser_line.visible = true
-	if previous_global_mouse_position.distance_to(global_mouse_position) * delta > laser_sensitivity and damage_timer.is_stopped():
-		damage_timer.start()
-		PlanetData.deal_damage()
-	
-	previous_global_mouse_position = global_mouse_position

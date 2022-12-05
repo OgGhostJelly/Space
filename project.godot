@@ -33,7 +33,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-PlanetData="*res://src/autoload/planet_data.gd"
+LaserData="*res://src/autoload/laser_data.gd"
 
 [input]
 
