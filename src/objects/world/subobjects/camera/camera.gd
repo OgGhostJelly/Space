@@ -2,33 +2,26 @@ extends Node3D
 class_name Player
 
 
-@export var terminal_velocity: float = 0.5
-@export var acceleration: float = 0.25
-@export var friction: float = 0.25
-@export var radius: float = 2.6
-@export var y_pos: float = 2.0
+@export var terminal_velocity: float = 3.0
 
-var velocity: float
-
-
-func _ready() -> void:
-	position.x = cos(Vector2.ZERO.x) * radius
-	position.y = y_pos
-	position.z = sin(Vector2.ZERO.y) * radius
+@onready var camera: Camera3D = $Camera3D
 
 
 func _process(delta: float) -> void:
-	# get the player input and change the velocity accordingly
-	var input_vector: int = int(Input.is_action_pressed("left")) - int(Input.is_action_pressed("right"))
-	if input_vector:
-		velocity = move_toward(velocity, terminal_velocity * input_vector, acceleration * delta)
-	else:
-		velocity = move_toward(velocity, 0, friction * delta)
-	print(velocity)
-	# move to the correct position around the center
-	var angle: float = atan2(position.z,position.x)
-	position.x = cos(angle + (velocity)) * radius
-	position.z = sin(angle + (velocity)) * radius
+	var input_vector: Vector2 = Input.get_vector(
+		"up",
+		"down",
+		"left",
+		"right"
+	)
 	
-	# look at the center
-	look_at(Vector3.ZERO)
+	rotate_y(input_vector.y * terminal_velocity * delta)
+	
+	#print(transform.basis.x)
+	#var axis: Vector3 = Vector3(input_vector.x,input_vector.y,0)
+	#transform.basis.y #transform.basis.x * input_vector.y if input_vector.y else Vector3(0, 0, input_vector.x).normalized()
+	#axis = axis.normalized()
+	#if axis:
+	#	var pivot_transform: Transform3D = Transform3D(transform.basis, position)
+	#	transform = pivot_transform.rotated(axis, terminal_velocity * delta)
+
