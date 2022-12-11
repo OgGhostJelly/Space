@@ -1,10 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://x2yut8ij7iya"]
+[gd_scene load_steps=2 format=3 uid="uid://x2yut8ij7iya"]
 
-[ext_resource type="Texture2D" uid="uid://bdemwqql41e1u" path="res://assets/crosshair.png" id="1_56eum"]
 [ext_resource type="Script" path="res://src/objects/userinterface/subobjects/laser_crosshair/laser_crosshair.gd" id="1_r6wsb"]
 
-[node name="LaserCrosshair" type="Sprite2D"]
-position = Vector2(inf, inf)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_56eum")
+[node name="LaserCrosshair" type="ProgressBar"]
+offset_left = 999999.0
+offset_top = 999999.0
+offset_right = 1.0001e+06
+offset_bottom = 1.00003e+06
+mouse_filter = 2
 script = ExtResource("1_r6wsb")

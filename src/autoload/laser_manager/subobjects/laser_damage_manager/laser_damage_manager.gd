@@ -1,17 +1,12 @@
 extends Timer
 
 
-func _ready() -> void:
-	LaserManager.target_changed.connect(_on_laser_target_changed)
+@export var damage: float = 400
 
 
-func _on_laser_target_changed() -> void:
-	if LaserManager.target:
-		start()
-	else:
-		stop()
-
-
-func _on_timeout() -> void:
+func _process(delta: float) -> void:
+	if not is_instance_valid(LaserManager.target):
+		return
+	
 	if LaserManager.target.has_method("_damaged_by_laser"):
-		LaserManager.target._damaged_by_laser
+		LaserManager.target._damaged_by_laser(damage * delta)
