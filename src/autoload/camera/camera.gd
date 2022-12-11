@@ -1,5 +1,6 @@
 extends Camera3D
-class_name Camera
+
+signal moved
 
 
 @export var terminal_velocity: float = 5.0
@@ -24,6 +25,8 @@ func _process(delta: float) -> void:
 		velocity = move_toward(velocity, 0, friction * delta)
 	
 	if velocity:
+		moved.emit()
+		
 		# update mouse
 		var mouse_event = InputEventMouseMotion.new()
 		mouse_event.position = get_viewport().get_mouse_position()

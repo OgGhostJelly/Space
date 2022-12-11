@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cesx0qqr26hvr"]
+[gd_scene load_steps=4 format=3 uid="uid://clday288d72jf"]
 
 [ext_resource type="PackedScene" uid="uid://clvnycft206hc" path="res://src/objects/debug/subobjects/fps_counter/fps_counter.tscn" id="1_rbiya"]
-[ext_resource type="PackedScene" uid="uid://dp7wy3tnpm7es" path="res://src/objects/debug/subobjects/laser_target_info/laser_target_info.tscn" id="1_x4ejo"]
+[ext_resource type="PackedScene" uid="uid://byvki68idp1f4" path="res://src/objects/debug/subobjects/laser_info/laser_info.tscn" id="1_x4ejo"]
+[ext_resource type="PackedScene" uid="uid://c2guowddv0m7x" path="res://src/objects/debug/subobjects/camera_info/camera_info.tscn" id="3_wy3v8"]
 
 [node name="Debug" type="VBoxContainer"]
 anchors_preset = 15
@@ -12,17 +13,29 @@ offset_right = 11.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+theme_override_constants/separation = 10
 
 [node name="FPSCounter" parent="." instance=ExtResource("1_rbiya")]
+layout_mode = 2
 offset_right = 1152.0
 offset_bottom = 26.0
 
-[node name="LaserTargetInfo" parent="." instance=ExtResource("1_x4ejo")]
+[node name="LaserInfo" parent="." instance=ExtResource("1_x4ejo")]
+layout_mode = 2
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_top = 30.0
+offset_top = 36.0
 offset_right = 1152.0
-offset_bottom = 125.0
+offset_bottom = 157.0
 grow_horizontal = 1
 grow_vertical = 1
+
+[node name="CameraInfo" parent="." instance=ExtResource("3_wy3v8")]
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 167.0
+offset_right = 1152.0
+offset_bottom = 219.0

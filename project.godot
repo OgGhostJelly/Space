@@ -9,11 +9,6 @@
 config_version=5
 
 _global_script_classes=[{
-"base": "Camera3D",
-"class": &"Camera",
-"language": &"GDScript",
-"path": "res://src/objects/world/subobjects/camera/camera.gd"
-}, {
 "base": "Area3D",
 "class": &"Obstacle",
 "language": &"GDScript",
@@ -25,7 +20,6 @@ _global_script_classes=[{
 "path": "res://src/objects/world/subobjects/planet/planet.gd"
 }]
 _global_script_class_icons={
-"Camera": "",
 "Obstacle": "",
 "Planet": ""
 }
@@ -40,6 +34,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 LaserManager="*res://src/autoload/laser_manager/laser_manager.tscn"
+Camera="*res://src/autoload/camera/camera.tscn"
 
 [display]
 

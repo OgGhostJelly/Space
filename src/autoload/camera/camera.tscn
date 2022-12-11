@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://xq0dht2i8eyq"]
+
+[ext_resource type="Script" path="res://src/autoload/camera/camera.gd" id="1_nxi15"]
+
+[node name="Camera3D" type="Camera3D"]
+script = ExtResource("1_nxi15")
