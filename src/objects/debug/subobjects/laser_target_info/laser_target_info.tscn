@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://dp7wy3tnpm7es"]
+
+[ext_resource type="Script" path="res://src/objects/debug/subobjects/laser_target_info/laser_target_info.gd" id="1_3y1vb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_23dtp"]
+line_spacing = 0.0
+
+[node name="LaserTargetInfo" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+script = ExtResource("1_3y1vb")
+
+[node name="Target" type="Label" parent="."]
+offset_right = 119.0
+offset_bottom = 23.0
+size_flags_horizontal = 0
+text = "laser target: %s"
+label_settings = SubResource("LabelSettings_23dtp")
+
+[node name="LastTarget" type="Label" parent="."]
+offset_top = 23.0
+offset_right = 1152.0
+offset_bottom = 49.0
+text = "last_target: %s"
+
+[node name="MouseTouching" type="Label" parent="."]
+offset_top = 49.0
+offset_right = 158.0
+offset_bottom = 72.0
+size_flags_horizontal = 0
+text = "mouse_touching: %s"
+label_settings = SubResource("LabelSettings_23dtp")
+
+[node name="FireActionPressed" type="Label" parent="."]
+offset_top = 72.0
+offset_right = 180.0
+offset_bottom = 95.0
+size_flags_horizontal = 0
+text = "fire_action_pressed: %s"
+label_settings = SubResource("LabelSettings_23dtp")

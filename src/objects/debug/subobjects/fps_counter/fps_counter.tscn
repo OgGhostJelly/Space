@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://clvnycft206hc"]
+
+[ext_resource type="Script" path="res://src/objects/debug/subobjects/fps_counter/fps_counter.gd" id="1_k1hd2"]
+
+[node name="FPSCounter" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "FPS: %s"
+script = ExtResource("1_k1hd2")

@@ -2,8 +2,5 @@
 
 [ext_resource type="Script" path="res://src/objects/world/subobjects/camera/camera.gd" id="1_bvh8e"]
 
-[node name="CameraPivot" type="Node3D"]
+[node name="Camera3D" type="Camera3D"]
 script = ExtResource("1_bvh8e")
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.6)

@@ -1,14 +1,12 @@
 extends CPUParticles2D
 
 
-@export var laser_sensitivity: float = 0.25
 @onready var laser_line: Line2D = $LaserLine2D
-@onready var damage_timer: Timer = $DamageTimer
 
 
 func _process(_delta: float) -> void:
 	# destroy asroids
-	if not LaserData.target:
+	if not LaserManager.target:
 		emitting = false
 		laser_line.visible = false
 		return

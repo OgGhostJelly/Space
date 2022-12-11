@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1syms82hfmoh"]
+
+[ext_resource type="Script" path="res://src/autoload/laser_manager/laser_manager.gd" id="1_iyc6k"]
+[ext_resource type="PackedScene" uid="uid://dqncnuch28ynt" path="res://src/autoload/laser_manager/subobjects/laser_damage_manager/laser_damage_manager.tscn" id="2_lpcgx"]
+
+[node name="LaserManager" type="Node"]
+script = ExtResource("1_iyc6k")
+
+[node name="LaserDamageManager" parent="." instance=ExtResource("2_lpcgx")]

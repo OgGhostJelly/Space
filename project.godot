@@ -9,19 +9,25 @@
 config_version=5
 
 _global_script_classes=[{
+"base": "Camera3D",
+"class": &"Camera",
+"language": &"GDScript",
+"path": "res://src/objects/world/subobjects/camera/camera.gd"
+}, {
+"base": "Area3D",
+"class": &"Obstacle",
+"language": &"GDScript",
+"path": "res://src/objects/world/subobjects/obstacle/subobjects/obstacle.gd"
+}, {
 "base": "Area3D",
 "class": &"Planet",
 "language": &"GDScript",
 "path": "res://src/objects/world/subobjects/planet/planet.gd"
-}, {
-"base": "Node3D",
-"class": &"Player",
-"language": &"GDScript",
-"path": "res://src/objects/world/subobjects/camera/camera.gd"
 }]
 _global_script_class_icons={
-"Planet": "",
-"Player": ""
+"Camera": "",
+"Obstacle": "",
+"Planet": ""
 }
 
 [application]
@@ -33,7 +39,11 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-LaserData="*res://src/autoload/laser_data.gd"
+LaserManager="*res://src/autoload/laser_manager/laser_manager.tscn"
+
+[display]
+
+window/stretch/mode="viewport"
 
 [input]
 

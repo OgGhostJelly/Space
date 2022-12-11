@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://chmfgvcp7mbmo"]
+[gd_scene load_steps=3 format=3 uid="uid://chmfgvcp7mbmo"]
 
 [ext_resource type="PackedScene" uid="uid://db7eckdym3omp" path="res://src/objects/userinterface/subobjects/laser/laser.tscn" id="1_n081s"]
+[ext_resource type="PackedScene" uid="uid://x2yut8ij7iya" path="res://src/objects/userinterface/subobjects/laser_crosshair/laser_crosshair.tscn" id="1_u0ngs"]
 
 [node name="UserInterface" type="Control"]
 layout_mode = 3
@@ -10,5 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="LaserCrosshair" parent="." instance=ExtResource("1_u0ngs")]
 
 [node name="Laser" parent="." instance=ExtResource("1_n081s")]

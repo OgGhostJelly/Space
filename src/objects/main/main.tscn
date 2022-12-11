@@ -1,24 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://c5vmhw2sdsq4u"]
+[gd_scene load_steps=4 format=3 uid="uid://c5vmhw2sdsq4u"]
 
-[ext_resource type="PackedScene" uid="uid://csuycsrbartef" path="res://src/objects/world/world.tscn" id="1_d0mvu"]
+[ext_resource type="PackedScene" uid="uid://cesx0qqr26hvr" path="res://src/objects/debug/debug.tscn" id="1_1gpsh"]
+[ext_resource type="PackedScene" uid="uid://bijkdjtfe2efy" path="res://src/objects/world/world.tscn" id="1_d0mvu"]
 [ext_resource type="PackedScene" uid="uid://chmfgvcp7mbmo" path="res://src/objects/userinterface/userinterface.tscn" id="2_ljx1d"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_if4t0"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_acrum"]
-
 [node name="Main" type="Node"]
+
+[node name="Debug" parent="." instance=ExtResource("1_1gpsh")]
 
 [node name="World" parent="." instance=ExtResource("1_d0mvu")]
 
 [node name="UserInterface" parent="." instance=ExtResource("2_ljx1d")]
-
-[node name="Area3D" type="Area3D" parent="." groups=["targetable"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.72621)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
-mesh = SubResource("BoxMesh_if4t0")
-skeleton = NodePath("../..")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-shape = SubResource("BoxShape3D_acrum")

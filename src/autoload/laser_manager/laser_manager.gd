@@ -1,11 +1,13 @@
 extends Node
 
 signal target_changed
+signal last_target_changed
 
-@export var damage: float = 1.0
+
 var mouse_touching: Node3D
 var fire_action_pressed: bool = false
 var target: Node3D: set = target_setter
+var last_target: Node3D: set = last_target_setter
 
 
 func _ready() -> void:
@@ -23,14 +25,27 @@ func _unhandled_input(event: InputEvent) -> void:
 		else:
 			fire_action_pressed = false
 	
+	update_target()
+
+
+func update_target() -> void:
 	# update target
-	if mouse_touching and fire_action_pressed:
+	if fire_action_pressed:
 		target = mouse_touching
+		
+		# update last_target
+		last_target = mouse_touching
 	else:
 		target = null
 
 
-func target_setter(value: Node3D) -> void:
+func target_setter(value) -> void:
 	if target != value:
 		target = value
 		target_changed.emit()
+
+
+func last_target_setter(value) -> void:
+	if target and last_target != value:
+		last_target = value
+		last_target_changed.emit()
