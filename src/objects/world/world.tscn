@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bijkdjtfe2efy"]
 
 [ext_resource type="PackedScene" uid="uid://cxrhil7wjg54l" path="res://src/objects/world/subobjects/planet/subobjects/Earth/earth.tscn" id="1_573wi"]
-[ext_resource type="PackedScene" uid="uid://f1tidai6nhq3" path="res://src/objects/world/subobjects/obstacle/subobjects/asteroid/asteroid.tscn" id="3_8ype1"]
+[ext_resource type="PackedScene" uid="uid://brfalkmnb6ri7" path="res://src/objects/world/subobjects/obstacle/subobjects/asteroid/asteroid.tscn" id="3_8ype1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0rks1"]
 
@@ -17,10 +17,19 @@ reflected_light_source = 2
 
 [node name="World" type="Node3D"]
 
+[node name="Asteroid" parent="." instance=ExtResource("3_8ype1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.84386)
+
+[node name="Asteroid2" parent="." instance=ExtResource("3_8ype1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.18951, 0, 5.84386)
+
+[node name="Asteroid3" parent="." instance=ExtResource("3_8ype1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49239, 0, -4.46788)
+
+[node name="Asteroid4" parent="." instance=ExtResource("3_8ype1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.84718, -3.83792, 2.01605)
+
 [node name="Earth" parent="." instance=ExtResource("1_573wi")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jr3ff")
-
-[node name="Asteroid" parent="." instance=ExtResource("3_8ype1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.21542)
