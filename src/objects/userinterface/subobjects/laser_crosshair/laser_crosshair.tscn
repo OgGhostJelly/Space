@@ -3,9 +3,8 @@
 [ext_resource type="Script" path="res://src/objects/userinterface/subobjects/laser_crosshair/laser_crosshair.gd" id="1_r6wsb"]
 
 [node name="LaserCrosshair" type="ProgressBar"]
-offset_left = 999999.0
-offset_top = 999999.0
-offset_right = 1.0001e+06
-offset_bottom = 1.00003e+06
+visible = false
+offset_right = 101.0
+offset_bottom = 31.0
 mouse_filter = 2
 script = ExtResource("1_r6wsb")

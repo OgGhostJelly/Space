@@ -3,9 +3,9 @@ extends Camera3D
 signal moved
 
 
-@export var terminal_velocity: float = 5.0
-@export var acceleration: float = 10.0
-@export var friction: float = 15.0
+@export var terminal_velocity: float = 7.0
+@export var acceleration: float = 20.0
+@export var friction: float = 30.0
 var velocity: float
 var radius: float = 2.6
 var y_pos: float = 2.0
