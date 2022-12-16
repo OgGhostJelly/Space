@@ -8,7 +8,7 @@ signal died
 
 func _enter_tree() -> void:
 	add_to_group("targetable")
-	area_entered.connect(_on_area_entered)
+	var _t = area_entered.connect(_on_area_entered)
 
 
 func _on_area_entered(area: Area3D) -> void:

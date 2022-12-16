@@ -1,9 +1,6 @@
 extends ProgressBar
 var last_target_last_pos: Vector3
 func _process(_delta: float) -> void:
-	print(max_value)
-	print(value)
-	print(randi())
 	if is_instance_valid(LaserManager.last_target):
 		# update last_target_last_pos
 		last_target_last_pos = LaserManager.last_target.global_position

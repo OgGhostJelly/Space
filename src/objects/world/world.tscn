@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bijkdjtfe2efy"]
+[gd_scene load_steps=7 format=3 uid="uid://bijkdjtfe2efy"]
 
 [ext_resource type="PackedScene" uid="uid://cxrhil7wjg54l" path="res://src/objects/world/subobjects/planet/subobjects/Earth/earth.tscn" id="1_573wi"]
+[ext_resource type="Script" path="res://src/objects/world/world.gd" id="1_ajc8e"]
 [ext_resource type="PackedScene" uid="uid://brfalkmnb6ri7" path="res://src/objects/world/subobjects/obstacle/subobjects/asteroid/asteroid.tscn" id="3_8ype1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0rks1"]
@@ -16,38 +17,16 @@ ambient_light_color = Color(0.996078, 0.996078, 0.996078, 1)
 reflected_light_source = 2
 
 [node name="World" type="Node3D"]
-
-[node name="Asteroid" parent="." instance=ExtResource("3_8ype1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.84386)
-
-[node name="Asteroid2" parent="." instance=ExtResource("3_8ype1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.18951, 0, 5.84386)
-
-[node name="Asteroid3" parent="." instance=ExtResource("3_8ype1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49239, 0, -4.46788)
-
-[node name="Asteroid4" parent="." instance=ExtResource("3_8ype1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.84718, -3.83792, 2.01605)
+script = ExtResource("1_ajc8e")
+obstacle = ExtResource("3_8ype1")
 
 [node name="Earth" parent="." instance=ExtResource("1_573wi")]
 
-[node name="Asteroid5" parent="." instance=ExtResource("3_8ype1")]
-transform = Transform3D(0.355335, 0, -0.934739, 0, 1, 0, 0.934739, 0, 0.355335, -2.98357, 0, 2.17655)
-
-[node name="Asteroid6" parent="." instance=ExtResource("3_8ype1")]
-transform = Transform3D(0.355335, 0, -0.934739, 0, 1, 0, 0.934739, 0, 0.355335, -1.13955, 0, 7.02739)
-
-[node name="Asteroid7" parent="." instance=ExtResource("3_8ype1")]
-transform = Transform3D(0.355335, 0, -0.934739, 0, 1, 0, 0.934739, 0, 0.355335, 7.54085, 0, 0.84216)
-
-[node name="Asteroid8" parent="." instance=ExtResource("3_8ype1")]
-transform = Transform3D(0.355335, 0, -0.934739, 0, 1, 0, 0.934739, 0, 0.355335, -0.0619322, -3.83792, -0.910235)
-
-[node name="Asteroid9" parent="." instance=ExtResource("3_8ype1")]
-transform = Transform3D(0.355335, 0, -0.934739, 0, 1, 0, 0.934739, 0, 0.355335, 7.54085, 0, 5.13907)
-
-[node name="Asteroid10" parent="." instance=ExtResource("3_8ype1")]
-transform = Transform3D(0.355335, 0, -0.934739, 0, 1, 0, 0.934739, 0, 0.355335, -0.0619322, -3.83792, 3.38667)
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jr3ff")
+
+[node name="ObstacleSpawnTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="ObstacleSpawnTimer" to="." method="_on_obstacle_spawn_timer_timeout"]
